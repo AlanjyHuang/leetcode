@@ -1,0 +1,36 @@
+/**
+Runtime: 419 ms
+Memory Usage: 10.2 MB
+**/
+class Solution {
+    
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int>out;
+        int first=0,second,buff=target;
+        buff=target-nums[first];
+        second=first+1;
+        while(first<nums.size() )
+        {
+           // std::cout<<buff<<nums[second]<<endl;
+            if(buff==nums[second])
+            {
+                break;
+            }
+            else
+            {
+                second++;
+                if(second==nums.size())
+               {
+                   first+=1;
+                    buff=target-nums[first];
+                    second=first+1;
+                }
+            }
+
+        }
+        out.push_back(first);
+        out.push_back(second);
+        return out;
+    }
+};

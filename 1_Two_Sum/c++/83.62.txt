@@ -1,0 +1,28 @@
+/**
+Runtime: 11 ms
+Memory Usage: 11.6 MB
+**/
+class Solution {
+    
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int first=0;
+        unordered_map<int,int>hashtable;
+        int second;
+        while(first<nums.size())
+        {
+            second=hashtable[target-nums[first]];
+            if(second==0)
+                first+=1;
+            else
+            {
+                if(first>second)
+                    return {second-1,first};
+                else
+                    return {first,second-1};
+            }
+            hashtable[nums[first-1]]=first;
+        }
+        return {};
+    }
+};
